@@ -23,6 +23,8 @@ void    signal_handler(int signum, siginfo_t *info, void *ucontext)
         if (bit == 0)
         {
 		write(1, &c, 1);
+		if (c == '\0')
+			kill(sender_pid, SIGUSR2);
                 c = 0;
                 bit = 8;
         }
