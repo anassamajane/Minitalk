@@ -59,12 +59,14 @@ void    send_bit(int pid, char c)
 
 void empty_handler(int sig)
 {
+	(void)sig;
 	cont = 0;
 	return ;
 }
 
 void ackn(int sig)
 {
+	(void)sig;
 	printf("Server is happy\n");
 }
 

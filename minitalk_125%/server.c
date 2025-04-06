@@ -11,7 +11,7 @@ void    signal_handler(int signum, siginfo_t *info, void *ucontext)
         static int      bit = 7;
 	 pid_t sender = info->si_pid;
 
-
+	(void)ucontext;
 	if (sender_pid != sender)
 	{
 		c = 0;
