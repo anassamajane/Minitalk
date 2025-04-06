@@ -53,3 +53,15 @@ cd minitalk_125%    # or cd minitalk_115%
 make
 ./server            # run the server and note the PID
 ./client <PID> "Hello from the client!"
+
+
+## 🧷 Notes
+
+- The **server must be started first** to receive signals from the client.
+- The **client sends each character bit by bit** using `SIGUSR1` (for 0) and `SIGUSR2` (for 1).
+- The **server reconstructs each byte** from the bits it receives, then prints the character.
+- In the `minitalk_125%` version:
+  - A **confirmation signal** (acknowledgment) is sent back from the server to the client after each character.
+  - This prevents the client from sending data too quickly and overwhelming the server.
+- Unicode characters are handled correctly in both versions.
+- `sigaction()` (used in the 125% version) provides better control than `signal()` and avoids issues with older signal handling.
