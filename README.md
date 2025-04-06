@@ -53,7 +53,7 @@ cd minitalk_125%    # or cd minitalk_115%
 make
 ./server            # run the server and note the PID
 ./client <PID> "Hello from the client!"
-
+```
 
 ## 🧷 Notes
 
